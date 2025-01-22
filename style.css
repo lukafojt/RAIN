@@ -1,0 +1,183 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: #151515;
+}
+
+.drop {
+    position: absolute;
+    bottom: 100%;
+    width: 10px;
+    height: 120px;
+    pointer-events: none;
+    animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+    0% {
+      transform: translateY(0vh);
+    }
+    75% {
+      transform: translateY(90vh);
+    }
+    100% {
+      transform: translateY(90vh);
+    }
+  }
+
+  .stem {
+    width: 2px;
+    height: 60%;
+    margin-left: 7px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    animation: stem 0.5s linear infinite;
+  }
+  
+  @keyframes stem {
+    0% {
+      opacity: 1;
+    }
+    65% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .splat {
+    width: 10px;
+    height: 100px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0);
+    animation: splat 0.5s linear infinite;
+    display: none;
+  }
+  
+  .splat {
+    display: block;
+  }
+  
+  @keyframes splat {
+    0% {
+      opacity: 1;
+      transform: scale(0);
+    }
+    80% {
+      opacity: 1;
+      transform: scale(0);
+    }
+    90% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+  }
+
+/* neon */
+@font-face {
+    font-family: 'neontubes';
+    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot');
+    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2') format('woff2'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff') format('woff'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    --clr1: rgb(255, 0, 0); /* Neon pink */
+    --clr2: rgb(38, 149, 255); /* Neon blue */
+  }
+  
+ 
+  
+  .logo {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: auto;
+    font-family: "neontubes";
+    font-size: 16vw;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .logo span {
+    display: block;
+    position: relative;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: opacity;
+  }
+  
+  .logo .open {
+    transform: rotate(-1deg);
+    color: rgba(255, 0, 60, 0.85);
+    text-shadow:
+      0 0 10px var(--clr1),
+      0 0 20px rgba(255, 0, 60, 0.5),
+      0 0 40px rgba(255, 0, 60, 1),
+      0 0 100px rgba(255, 0, 60, 1),
+      0 0 200px rgba(255, 0, 60, 1);
+    animation: blink 4s infinite alternate;
+  }
+  
+  .logo .hrs {
+    transform: rotate(1deg);
+    font-size: 11vw;
+    color: rgba(38, 149, 255, 0.8);
+    text-shadow:
+      0 0 10px var(--clr2),
+      0 0 20px rgba(38, 149, 255, 0.5),
+      0 0 40px rgba(38, 149, 255, 1),
+      0 0 100px rgba(38, 149, 255, 1),
+      0 0 200px rgba(38, 149, 255, 1);
+    animation: buzz 0.5s infinite alternate;
+  }
+  
+  @keyframes blink {
+    40% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes buzz {
+    70% {
+      opacity: 0.85;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @media screen and (min-width: 100px) {
+    .logo {
+      width: 400px;
+      font-size: 150px;
+    }
+    .logo .hrs {
+      font-size: 100px;
+    }
+  }
+  
